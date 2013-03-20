@@ -45,6 +45,11 @@ footer.joli {
   color: #bcbcbc;
   text-align: right; }
 
+.reveal section .no-caps {
+  text-transform: none; }
+.reveal section p {
+  line-height: 1.5em; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
