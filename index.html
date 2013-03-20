@@ -69,7 +69,7 @@
 
                     <ul>
                         <li>Un Bundle? WTF is that?</li>
-                        <li>Les Bundles que même ta mère connait</li>
+                        <li>Les Bundles qu'on a TOUS</li>
                         <li>Des Bundles qui roxent
 
                             <ul>
@@ -90,8 +90,11 @@
                     <h1 class="fragment">Everything</h1>
 
                     <aside class="notes">
-                        Symfony2 est lui même un Bundle:
+                        <p>Symfony2 est lui même un Bundle !</p>
 
+                        <p>Pensez à doctrine-bundle, sensio/distribution-bundle, sensio/framework-extra-bundle, sensio/generator-bundle</p>
+
+                        <p>cache:clear et assets:install, c'est pas dans Symfony mais dans Distribution Bundle</p>
                     </aside>
                 </section>
 
@@ -110,24 +113,72 @@
                 </section>
 
                 <section>
-                    <h2>Point of View</h2>
-                    <p>
-                        Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+                    <h2>Quelques chiffres</h2>
+
+                    <ul>
+                        <li><strong>1934</strong> Bundles*</li>
+                        <li>Plus d'1,5 Bundle <strong>par jour</strong> est publié</li>
+                        <li>Symfony 1 compte 1445 plugins</li>
+                    </ul>
+
+                    <p class="footnote">
+                        * source : knpbundles.com (on en trouve 1667 sur packagist et 988 sur symfohub)
                     </p>
                 </section>
 
                 <section>
-                    <h2>rvl.io</h2>
-                    <p>
-                        If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-                    </p>
+                    <h2>Les Bundles que même ta mère connait</h2>
                 </section>
 
                 <section>
-                    <h2>Works in Mobile Safari</h2>
-                    <p>
-                        Try it out! You can swipe through the slides and pinch your way to the overview.
-                    </p>
+                    <h2>FOSUserBundle</h2>
+
+                    <ul>
+                        <li>Gestion des User</li>
+                        <li>Stockage Doctrine ou ODM ou Propel</li>
+                        <li>Formulaire d'inscription</li>
+                        <li>Mot de passe oublié...</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>FOSRestBundle</h2>
+
+                    <ul>
+                        <li>Création d'API REST à la volée</li>
+                        <li>Un controlleur pour plein de formats de sortie</li>
+                        <li>Génération de route automatique</li>
+                        <li>Négociation du format (<code>accept</code>)</li>
+                    </ul>
+
+                    <pre><code>    &lt;?php
+    class PoniesController
+    {
+        public function getPoniesAction()
+        {} // "get_ponies"     [GET] /ponies
+
+        public function newPoniesAction()
+        {} // "new_ponies"     [GET] /ponies/new</code></pre>
+                </section>
+
+                <section>
+                    <h2>StofDoctrineExtensionBundle</h2>
+
+                    <ul>
+                        <li>Installe et configure 11 extension Doctrine2</li>
+                        <li>l3pp4rd / DoctrineExtensions</li>
+                    </ul>
+
+                    <pre><code>    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(type="string")
+     */
+    private $createdBy;</code></pre>
                 </section>
 
                 <section>

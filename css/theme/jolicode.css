@@ -39,6 +39,12 @@ footer.joli {
   background: none;
   box-shadow: none; }
 
+.reveal section .footnote {
+  margin-top: 100px;
+  font-size: 0.6em;
+  color: #bcbcbc;
+  text-align: right; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
