@@ -248,11 +248,21 @@
                     </p>
                 </section>
 
+
+
+
+
+
                 <section>
                     <h2>Pour le développeur fainéant</h2>
 
                     <p>Qui a dit « efficace » ?</p>
                 </section>
+
+
+
+
+
 
                 <section>
                     <section>
@@ -366,75 +376,92 @@ echo $faker->text;
                     </section>
                 </section>
 
+
+
+
+                <!-- @todo Teasing : Servir des fichiers en PHP, cette blague -->
                 <section>
-                    <section data-state="alert">
-                        <h2>Global State</h2>
-                        <p>
-                            Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-                            will be added as a class to the document element when the slide is open. This lets you
-                            apply broader style changes, like switching the background.
-                        </p>
-                        <a href="#" class="image navigate-down">
-                            <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                        </a>
+                    <section>
+                        <h2 class="no-caps">IgorwFileServeBundle</h2>
+
+                        <ul>
+                            <li><a href="https://github.com/igorw/IgorwFileServeBundle">https://github.com/igorw/IgorwFileServeBundle</a></li>
+                            <li>Servir des fichiers sécurisés</li>
+                            <li>StreamedResponse n'est pas bon pour ça</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <p>On peut servir des fichiers sans les mettre dans /web !</p>
+                        </aside>
                     </section>
-                    <section data-state="blackout">
-                        <h2>"blackout"</h2>
-                        <a href="#" class="image navigate-down">
-                            <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                        </a>
+
+                    <section>
+                        <h3>Support de Sendfile</h3>
+
+                        <ul>
+                            <li>Envoi de gros fichiers sans passer par PHP</li>
+                            <li>Délégation complète au serveur HTTP
+                                <ul>
+                                    <li>Nginx XSendfile</li>
+                                    <li>Apache mod_xsendfile</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <aside class="notes">
+                            <p>
+                                Utiliser SendFIle c'est juste un header HTTP
+                            </p>
+                        </aside>
                     </section>
-                    <section data-state="soothe">
-                        <h2>"soothe"</h2>
-                        <a href="#" class="image navigate-next">
-                            <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(-90deg);">
-                        </a>
+
+                    <section>
+                        <h3>Plus simple et meilleur</h3>
+
+                        <pre><code>&lt;?php
+    use Symfony\Component\HttpFoundation\StreamedResponse;
+    use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+
+    $response = new StreamedResponse();
+    $response->setCallback(function () {
+        $name = '../r-black-Friday-Friday.mp4';
+        $fp = fopen($name, 'rb');
+        fpassthru($fp);
+    });
+    $d = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, 'video.mp4');
+    $response->headers->set('Content-Disposition', $d);
+    $response->send();</code></pre>
+                        <h3>VS</h3>
+                        <pre><code>$response = $this->get('igorw_file_serve.response_factory')
+    ->create('../r-black-Friday-Friday.mp4', 'video/mp4);</code></pre>
+
+                        <aside class="notes">
+                            <p>
+                                StreamedResponse est apparu en 2.1, utilise l'output de PHP.
+                            </p>
+                        </aside>
                     </section>
                 </section>
 
-                <section data-state="customevent">
-                    <h2>Custom Events</h2>
-                    <p>
-                        Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-                    </p>
-                    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-    console.log( '"customevent" has fired' );
-} );
-                    </code></pre>
-                </section>
+
+
+
+
+
+
 
                 <section>
-                    <h2>Clever Quotes</h2>
-                    <p>
-                        These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                        The nice thing about standards is that there are so many to choose from</q> and block:
-                    </p>
-                    <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                        For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-                        reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-                    </blockquote>
+                    <h2>Pour profiler et inspecter</h2>
+
+                    <p>Performance et statistiques sont nos amis.</p>
                 </section>
 
-                <section>
-                    <h2>Pretty Code</h2>
-                    <pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
 
-    var nodes = document.querySelectorAll( selector );
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
 
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-                    </code></pre>
-                    <p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-                </section>
+
+
+
 
                 <section>
                     <h2>Intergalactic Interconnections</h2>
@@ -444,40 +471,7 @@ function linkify( selector ) {
                     </p>
                 </section>
 
-                <section>
-                    <section>
-                        <h2>Fragmented Views</h2>
-                        <p>Hit the next arrow...</p>
-                        <p class="fragment">... to step through ...</p>
-                        <ol>
-                            <li class="fragment"><code>any type</code></li>
-                            <li class="fragment"><em>of view</em></li>
-                            <li class="fragment"><strong>fragments</strong></li>
-                        </ol>
 
-                        <aside class="notes">
-                            This slide has fragments which are also stepped through in the notes window.
-                        </aside>
-                    </section>
-                    <section>
-                        <h2>Fragment Styles</h2>
-                        <p>There's a few styles of fragments, like:</p>
-                        <p class="fragment grow">grow</p>
-                        <p class="fragment shrink">shrink</p>
-                        <p class="fragment roll-in">roll-in</p>
-                        <p class="fragment fade-out">fade-out</p>
-                        <p class="fragment highlight-red">highlight-red</p>
-                        <p class="fragment highlight-green">highlight-green</p>
-                        <p class="fragment highlight-blue">highlight-blue</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h2>Spectacular image!</h2>
-                    <a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-                        <img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-                    </a>
-                </section>
 
                 <section>
                     <h2>Export to PDF</h2>
