@@ -78,8 +78,8 @@
                     <!-- @todo Ajouter des liens vers les bonnes slides ! -->
                     <ol>
                         <li>Qu'est ce qu'un « Bundle »</li>
-                        <li>Les Bundles que même ta mère connait</li>
-                        <li>♥ Les Bundles a aimer ♥
+                        <li>Les Bundles que même ta mamie connaît</li>
+                        <li>♥ Les Bundles à aimer ♥
                             <ul>
                                 <li>Pour le développeur fainéant</li>
                                 <li>Pour profiler et inspecter</li>
@@ -87,7 +87,7 @@
                                 <li>Pour se marrer ☺</li>
                             </ul>
                         </li>
-                        <li>A quoi on reconnait-on un bon Bundle ?</li>
+                        <li>À quoi on reconnaît-on un bon Bundle ?</li>
                     </ol>
                 </section>
 
@@ -135,7 +135,7 @@
                 </section>
 
                 <section>
-                    <h2>Les Bundles que même ta mère connait</h2>
+                    <h2>Les Bundles que même ta mamie connaît</h2>
 
                     <img class="" src="images/mom.jpg" />
                 </section>
@@ -241,11 +241,17 @@
                 </section>
 
                 <section>
-                    <h2>Les Bundles a aimer</h2>
+                    <h2>Les Bundles à aimer</h2>
                     
                     <p>
                         <img style="width: 80%;" src="images/happy-twins.gif" alt="Happy Twins" />
                     </p>
+                </section>
+
+                <section>
+                    <h2>Pour le développeur fainéant</h2>
+
+                    <p>Qui a dit « efficace » ?</p>
                 </section>
 
                 <section>
@@ -260,41 +266,104 @@
                     </section>
 
                     <section>
-                        <p>test</p>
+                        <h3>Select2</h3>
+                        <p><img src="images/select2.png" alt="Select2" /></p>
+                    </section>
+
+                    <section>
+                        <h3>reCAPTCHA</h3>
+                        <p><img src="images/recaptcha.png" alt="reCAPTCHA" /></p>
+                    </section>
+
+                    <section>
+                        <h3>TinyMCE</h3>
+                        <p><img src="images/tinymce.png" alt="TinyMCE" /></p>
+                    </section>
+
+                    <section>
+                        <h3 class="no-caps">Datepicker, Slider, Autocomplete, Colorpicker, Rating, File...</h3>
+                    </section>
+
+                    <section>
+                        <h3>Un super form theme</h3>
+                        <pre><code>{% block genemu_jqueryrating_javascript %}
+{% spaceless %}
+    &lt;script type="text/javascript"&gt;
+        jQuery(document).ready(function($) {
+            $('[name="{{ full_name }}"]').rating({{ configs|json_encode|raw }});
+        });
+    &lt;/script&gt;
+{% endspaceless %}
+{% endblock genemu_jqueryrating_javascript %}</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Facile à installer</h3>
+
+                        <ul>
+                            <li>Librairies JS à maintenir vous même</li>
+                            <li>S'utilise comme n'importe quel Type</li>
+                        </ul>
+
+                        <pre><code>&lt;?php
+// ...
+public function buildForm(FormBuilder $builder, array $options)
+{
+    $builder
+        ->add('captcha', '<b>genemu_recaptcha</b>');
+}</code></pre>
                     </section>
                 </section>
 
-                <section id="transitions">
-                    <h2>Transition Styles</h2>
-                    <p>
-                        You can select from different transitions, like: <br>
-                        <a href="?transition=cube#/transitions">Cube</a> -
-                        <a href="?transition=page#/transitions">Page</a> -
-                        <a href="?transition=concave#/transitions">Concave</a> -
-                        <a href="?transition=zoom#/transitions">Zoom</a> -
-                        <a href="?transition=linear#/transitions">Linear</a> -
-                        <a href="?transition=fade#/transitions">Fade</a> -
-                        <a href="?transition=none#/transitions">None</a> -
-                        <a href="?#/transitions">Default</a>
-                    </p>
-                </section>
+                <!-- @todo Image teasing sur how painfull it is d'écrire des fixtures ? -->
 
-                <section id="themes">
-                    <h2>Themes</h2>
-                    <p>
-                        Reveal.js comes with a few themes built in: <br>
-                        <a href="?theme=sky#/themes">Sky</a> -
-                        <a href="?theme=beige#/themes">Beige</a> -
-                        <a href="?theme=simple#/themes">Simple</a> -
-                        <a href="?theme=serif#/themes">Serif</a> -
-                        <a href="?theme=night#/themes">Night</a> -
-                        <a href="?#/themes">Default</a>
-                    </p>
-                    <p>
-                        <small>
-                            * Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-                        </small>
-                    </p>
+                <section>
+                    <section>
+                        <h2 class="no-caps">BazingaFakerBundle</h2>
+
+                        <ul>
+                            <li><a href="https://github.com/willdurand/BazingaFakerBundle">https://github.com/willdurand/BazingaFakerBundle</a></li>
+                            <li>Mieux que des Fixtures !</li>
+                            <li>Utilise <a href="https://github.com/fzaninotto/Faker">Faker</a>, par Francois Zaninotto</li>
+                            <li>Les données de test ♥</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <p>agit en remplacement ou complément des fixtures<br />
+                                après tout, il expose Faker en tant que service</p>
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Faker</h3>
+                        <pre><code>echo $faker->name;
+  // 'Lucy Cechtelar';
+echo $faker->address;
+  // "426 Jordy Lodge
+  // Cartwrightshire, SC 88120-6700"
+echo $faker->text;
+  // Sint velit eveniet. Rerum atque repellat voluptatem quia rerum. Numquam excepturi
+  // beatae sint laudantium consequatur. Magni occaecati itaque sint et sit tempore. Nesciunt
+  // amet quidem. Iusto deleniti cum autem ad quia aperiam.
+  // A consectetur quos aliquam. In iste aliquid et aut similique suscipit.</code></pre>
+                    </section>
+                    <section>
+                        <h3 class="no-caps">Intégration via Yml</h3>
+
+                        <pre><code>bazinga_faker:
+    entities:
+        Joli\PonyBundle\Model\Pony:
+            number: 5
+        Joli\PonyBundle\Model\Guinness:
+            number: 55</code></pre>
+                    </section>
+                    <section>
+                        <h3>Features</h3>
+                        <ul>
+                            <li>Formatteurs custom</li>
+                            <li>Supporte Propel & Doctrine & Mandango</li>
+                            <li><code>php app/console faker:populate</code></li>
+                        </ul>
+                    </section>
                 </section>
 
                 <section>
