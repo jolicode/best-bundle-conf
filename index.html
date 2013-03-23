@@ -443,6 +443,60 @@ echo $faker->text;
                     </section>
                 </section>
 
+                <section>
+                    <section>
+                        <h2 class="no-caps">NelmioApiDocBundle</h2>
+
+                        <ul>
+                            <li><a href="https://github.com/nelmio/NelmioApiDocBundle">https://github.com/nelmio/NelmioApiDocBundle</a></li>
+                            <li>Documentation pour API</li>
+                            <li>Automatique et testable</li>
+                            <li>Authentification</li>
+                            <li>Interface sexy</li>
+                        </ul>
+
+                        <aside class="notes">Interface basée sur Swagger-UI<br />
+                            introspection et annotation pour avoir une doc toujours à jour</aside>
+                    </section>
+
+                    <section>
+                        <h3>Annotations</h3>
+
+                        <pre><code>&lt;?php
+class PonyController extends Controller
+{
+    /**
+     * Ce blabla sera dans la documentation :)
+     *
+     * @Route("/pony")
+     * @Method({"GET"})
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Obtenir des poneys",
+     *  filters={
+     *      {"name"="color", "dataType"="integer"}
+     *  }
+     * )
+     */
+    public function getAction() { }</code></pre>
+                    </section>
+
+                    <section>
+                        <img src="images/apidoc.png" alt="Api Doc" style="width: 90%"/>
+                    </section>
+
+                    <section>
+                        <h3>Possibilité d'export static</h3>
+
+                        <ul>
+                            <li>Markdown</li>
+                            <li>HTML</li>
+                            <li>Json</li>
+                        </ul>
+
+                        <pre><code>app/console api:doc:dump --format=html > api.html</code></pre>
+                    </section>
+                </section>
 
 
 
@@ -710,7 +764,7 @@ class AwesomeWarmupProvider implements UrlProviderInterface
                     </section>
 
                     <section>
-                        <h3 class="no-caps">Remplace "onerror"</h3>
+                        <h3 class="no-caps">Remplace « onerror »</h3>
 
                         <pre><code>{{ nelmio_js_error_logger() }}</code></pre>
                         <pre><code>(function() {
