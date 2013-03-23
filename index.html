@@ -277,17 +277,17 @@
 
                     <section>
                         <h3>Select2</h3>
-                        <p><img src="images/select2.png" alt="Select2" /></p>
+                        <p><img src="images/select2.png" alt="Select2" style="width: 70%;" /></p>
                     </section>
 
                     <section>
                         <h3>reCAPTCHA</h3>
-                        <p><img src="images/recaptcha.png" alt="reCAPTCHA" /></p>
+                        <p><img src="images/recaptcha.png" alt="reCAPTCHA" style="width: 70%;" /></p>
                     </section>
 
                     <section>
                         <h3>TinyMCE</h3>
-                        <p><img src="images/tinymce.png" alt="TinyMCE" /></p>
+                        <p><img src="images/tinymce.png" alt="TinyMCE" style="width: 90%;" /></p>
                     </section>
 
                     <section>
@@ -685,7 +685,8 @@ class AwesomeWarmupProvider implements UrlProviderInterface
                         <h3>Ligne de commande</h3>
 
                         <pre><code>app/console zenstruck:http-cache:warmup http://local.sf2-bundles.com
- 5/5 [============================] 100%</code></pre>
+
+4/5 [======================>-----] 80%</code></pre>
 
                         <div class="fragment">
                             <img src="images/sparkle.gif" alt="**" style="background: none;border: none; box-shadow: none;vertical-align: middle"
@@ -697,16 +698,60 @@ class AwesomeWarmupProvider implements UrlProviderInterface
                 </section>
 
 
+                <section>
+                    <section>
+                        <h2 class="no-caps">NelmioJsLoggerBundle</h2>
 
+                       <ul>
+                           <li><a href="https://github.com/nelmio/NelmioJsLoggerBundle">https://github.com/nelmio/NelmioJsLoggerBundle</a></li>
+                           <li>Logger les erreurs Javascript</li>
+                           <li>Il n'y a pas que le backend qui sait faire !</li>
+                       </ul>
+                    </section>
 
+                    <section>
+                        <h3 class="no-caps">Remplace "onerror"</h3>
 
+                        <pre><code>{{ nelmio_js_error_logger() }}</code></pre>
+                        <pre><code>(function() {
+    var oldErrorHandler = window.onerror;
+    window.onerror = function(errorMsg, file, line) {
+        if (oldErrorHandler) {
+            oldErrorHandler(errorMsg, file, line);
+        }
+        (new Image()).src = '/nelmio-js-logger/log?msg='; // [...]
+    };
+})();</code></pre>
+                        <aside class="notes">
+                            Bien sûr la route est configurable dans le routing
+                        </aside>
+                    </section>
 
+                    <section>
+                        <h3>Une erreur et c'est le drame</h3>
 
+                        <img src="images/error-JS.png" alt="Erreur JS" style="width: 80%"/>
 
+                        <p>Sans NelmioJsLoggerBundle, elle serait perdu à jamais :(</p>
+                    </section>
 
+                    <section>
+                        <h3>Dans nos logs</h3>
 
+                        <pre><code>[2013-03-23 19:38:20] event.DEBUG: blablabla
+[2013-03-23 19:38:20] event.DEBUG: blablabla
+[2013-03-23 19:38:20] <b>frontend.ERROR: Uncaught ReferenceError: loadCornify is not defined {"file":"http://local.sf2-bundles.com/app_dev.php/demo/hello/World","line":"50","browser":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Ubuntu Chromium/25.0.1364.160 Chrome/25.0.1364.160 Safari/537.22","page":"http://local.sf2-bundles.com/app_dev.php/demo/hello/World"} []</b>
+[2013-03-23 19:38:20] event.DEBUG: blablabla</code></pre>
+                    </section>
 
+                    <section>
+                        <h3>Vos propres logs</h3>
 
+                        <pre><code>{{ nelmio_js_logger() }} {# Expose une fonction log() #}</code></pre>
+
+                        <p>Et pourquoi pas remplacer aussi <code>console.log()</code> !</p>
+                    </section>
+                </section>
 
 
 
