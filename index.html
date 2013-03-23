@@ -457,6 +457,8 @@ echo $faker->text;
                 </section>
 
 
+
+
                 <section>
                     <section>
                         <h2 class="no-caps">LswMemcacheBundle</h2>
@@ -464,16 +466,246 @@ echo $faker->text;
                        <ul>
                            <li><a href="https://github.com/LeaseWeb/LswMemcacheBundle">https://github.com/LeaseWeb/LswMemcacheBundle</a></li>
                            <li>Faciliter le debug de Memcached</li>
+                           <li>Avoir un store d'objet à porté de main</li>
                            <li>Mettre en memcached les sessions User*</li>
+                           <li>ADP: Anti Dog Pile</li>
                        </ul>
 
                         <p class="footnote">
-                            (Pas une si bonne idée)
+                           * (Attention quand même)
                         </p>
                        <aside class="notes">
-                           <p>On peut servir des fichiers sans les mettre dans /web !</p>
+                           <p>Memcache quand il a plus de place, il... SUPPRIME.</p>
+                           <p>Bundle tout réçent</p>
                        </aside>
                    </section>
+
+                    <section>
+                        <h3>Un service pour Memcached</h3>
+
+                        <pre><code>lsw_memcache:
+    clients:
+        default:
+            hosts:
+              - { dsn: localhost, port: 11211 }</code></pre>
+
+                        <pre><code>$this->get('memcache.default')->set('Ponies', 'Are Awesome', 1111);
+$this->get('memcache.default')->get('Ponies');</code></pre>
+
+                        <aside class="notes">
+                           <p>Grandement configurable (toutes les options de memcached)</p>
+                       </aside>
+                    </section>
+
+                    <section>
+                        <h3>Sessions en mémoire</h3>
+
+                        <pre><code>lsw_memcache:
+    session:
+        client: default</code></pre>
+
+                        <ul>
+                            <li>Aucun accès disque</li>
+                            <li>Pas de stockage en base de donnée</li>
+                            <li>Scalable</li>
+                            <li>La RAM c'est pas cher, mangez en</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="no-caps">Intégration Web Debug Toolbar</h3>
+                        
+                        <p><img src="images/memcached.png" alt="Memcache" style="width: 80%"/></p>
+                    </section>
+                    <section>
+                        <h3 class="no-caps">Intégration Web Debug Toolbar</h3>
+
+                        <p><img src="images/memcache2.png" alt="Memcache" style="width: 80%"/></p>
+                    </section>
+
+                    <section>
+                        <h3>ADP</h3>
+
+                        <pre><code>$this->get('memcache.default')-><b>setAdp</b>('Ponies', 'Yolo', 1111);
+$this->get('memcache.default')-><b>getAdp</b>('Ponies');</code></pre>
+
+                        <ul>
+                            <li>Sert l'ancienne valeur après expiration</li>
+                            <li>Seulement 1 process obtient un cache MISS</li>
+                            <li>Plus lent</li>
+                        </ul>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section>
+                        <h2 class="no-caps">JSMysqlndBundle</h2>
+
+                       <ul>
+                           <li><a href="https://github.com/johannes/JSMysqlndBundle">https://github.com/johannes/JSMysqlndBundle</a></li>
+                           <li>Mysqlnd déchire</li>
+                           <li>Facile à installer via <a href="http://www.dotdeb.org/">DotDeb</a></li>
+                           <li>Défaut dans PHP 5.4</li>
+                           <li>Plein de statistiques</li>
+                           <li>La stack trace complète avec mysqlnd_qc</li>
+                       </ul>
+
+                       <aside class="notes">
+                           <p>MySQL Native Driver:</p>
+                           <ul>
+                                <li>Optimisé, meilleur que libmysql</li>
+                                <li>Utilise le coeur de PHP en C</li>
+                                <li>PHP memory management</li>
+                                <li>Plugins</li>
+                           </ul>
+
+                           <p>Notez que c'est JS, pas JMS, ce n'est pas le johannes que l'on connait</p>
+                       </aside>
+                    </section>
+
+                    <section>
+                        <h3>Statistiques</h3>
+
+                        <img src="images/mysqlnd.png" alt="MysqlND" style="width: 80%" />
+                    </section>
+
+                    <section>
+                        <h3>Statistiques QC</h3>
+
+                        <img src="images/mysqlnd2.png" alt="MysqlND avec QC" style="width: 80%" />
+
+                        <aside class="notes">
+                          <p>Avec un plugin mysql ND, nommé Query Cache, on a une stack trace possible.</p>
+                          <p>Le truc sert à faire du cache de query/result applicatif, mieux que celui de Doctrine.</p>
+                          <p>Marche avec APC, Memcache...</p>
+                      </aside>
+                    </section>
+
+                    <section>
+                        <h3>En savoir plus</h3>
+
+                        <ul>
+                            <li><a href="http://dev.mysql.com/doc/refman/5.5/en/apis-php-mysqlnd.stats.html">mysql.com/doc/apis-php-mysqlnd.stats</a></li>
+                            <li><a href="http://schlueters.de/blog/">schlueters.de/blog/</a></li>
+                        </ul>
+                    </section>
+                </section>
+
+
+                <section>
+                    <section>
+                        <h2 class="no-caps">WebProfilerExtraBundle</h2>
+
+                       <ul>
+                           <li><a href="https://github.com/Elao/WebProfilerExtraBundle">https://github.com/Elao/WebProfilerExtraBundle</a></li>
+                           <li>Debug de Twig, du Router, du DIC et d'Assetic</li>
+                           <li>Intégration à la Web Debug Toolbar</li>
+                       </ul>
+                    </section>
+
+                    <section>
+                        <h3>Web Debug Toolbar</h3>
+
+                        <img src="images/debug-twig.png" alt="debug bar twig" style="width: 80%"/>
+
+                        <aside class="notes">
+                            LE NOM DU TEMPLATE YEAH. Le reste on s'en fout. <br />
+                            Manque les includes, les extends... a creuser !
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Variables Twig</h3>
+
+                        <img src="images/twig_dump.png" alt="Twig Dump" style="width: 80%"/>
+                    </section>
+                    <section>
+                        <h3>Router</h3>
+
+                        <img src="images/router.png" alt="Router Dump" style="width: 80%"/>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2 class="no-caps">ZenstruckCacheBundle</h2>
+
+                       <ul>
+                           <li><a href="https://github.com/kbond/ZenstruckCacheBundle">https://github.com/kbond/ZenstruckCacheBundle</a></li>
+                           <li>Warm-up HTTP</li>
+                           <li>Fini le cache vide !</li>
+                       </ul>
+                    </section>
+
+                    <section>
+                        <h3>Sitemap</h3>
+
+                        <pre><code>zenstruck_cache:
+    sitemap_provider:     true</code></pre>
+
+                        <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;&lt;loc&gt;http://local.sf2-bundles.com/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;http://local.sf2-bundles.com/registration/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;http://local.sf2-bundles.com/demo/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;http://local.sf2-bundles.com/demo/hello/World&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;http://local.sf2-bundles.com/demo/hello/Coucou&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;http://local.sf2-bundles.com/demo/hello/Poney&lt;/loc&gt;&lt;/url&gt;
+&lt;/urlset&gt;</code></pre>
+
+                        <p class="footnote">Bonus : <a href="https://github.com/dreipunktnull/DpnXmlSitemapBundle">Un Bundle pour générer votre sitemap</a> !</p>
+                    </section>
+
+                    <section>
+                        <h3>Via un service</h3>
+
+                        <pre><code>awesome_url_provider:
+    class: Acme\DemoBundle\HttpCache\AwesomeWarmupProvider
+    tags:
+        - { <b>name: zenstruck_cache.url_provider</b> }</code></pre>
+
+                        <pre><code>&lt;?php
+use Zenstruck\Bundle\CacheBundle\HttpCache\UrlProviderInterface;
+
+class AwesomeWarmupProvider implements UrlProviderInterface
+{
+   public function getUrls($host = null)
+   {
+       $urls = array();
+
+       // do ur biznessss
+
+       return $urls;
+   }
+}</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Ligne de commande</h3>
+
+                        <pre><code>app/console zenstruck:http-cache:warmup http://local.sf2-bundles.com
+ 5/5 [============================] 100%</code></pre>
+
+                        <div class="fragment">
+                            <img src="images/sparkle.gif" alt="**" style="background: none;border: none; box-shadow: none;vertical-align: middle"
+                                    class="no-transition"
+                                    /> SHINNY PROGRESS BAR!!
+                        </div>
+
+                    </section>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
