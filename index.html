@@ -486,7 +486,7 @@ class PonyController extends Controller
                     </section>
 
                     <section>
-                        <h3>Possibilité d'export static</h3>
+                        <h3>Possibilité d'export statique</h3>
 
                         <ul>
                             <li>Markdown</li>
@@ -769,7 +769,7 @@ class AwesomeWarmupProvider implements UrlProviderInterface
                         <pre><code>{{ nelmio_js_error_logger() }}</code></pre>
                         <pre><code>(function() {
     var oldErrorHandler = window.onerror;
-    window.onerror = function(errorMsg, file, line) {
+    <b>window.onerror</b> = function(errorMsg, file, line) {
         if (oldErrorHandler) {
             oldErrorHandler(errorMsg, file, line);
         }
@@ -806,7 +806,67 @@ class AwesomeWarmupProvider implements UrlProviderInterface
                         <p>Et pourquoi pas remplacer aussi <code>console.log()</code> !</p>
                     </section>
                 </section>
+                <section>
+                    <section>
+                        <h2 class="no-caps">JnsXhprofBundle</h2>
 
+                        <ul>
+                            <li><a href="https://github.com/jonaswouters/XhprofBundle">https://github.com/jonaswouters/XhprofBundle</a></li>
+                            <li>Intégration à la Web Debug Toolbar</li>
+                            <li>Profile toute la stack SF2</li>
+                            <li>Support de XHGui (Entity)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Activation facile</h3>
+
+                        <pre><code>jns_xhprof:
+    location_lib:    "/usr/share/php5-xhprof/xhprof_lib/utils/xhprof_lib.php"
+    location_runs:   "/usr/share/php5-xhprof/xhprof_lib/utils/xhprof_runs.php"
+    location_config: "/usr/share/php5-xhprof/xhprof_lib/config.php"
+    location_web:    "http://127.0.0.1/xhprof/"
+    <b>enabled:         true</b></code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Dans la web debug toolbar</h3>
+
+                        <img src="images/xhprof.png" alt="Xhprof" style="width: 30%" /><br />
+                        <img src="images/xhprof2.png" alt="Xhprof 2" style="width: 80%" />
+
+                        <aside class="notes">
+                            Ça c'est l'interface du paquet par défaut, et c'est moche.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Callgraph par defaut</h3>
+
+                        <img src="images/callgraph.png" alt="Callgraph" style="width: 70%" />
+                    </section>
+
+                    <section>
+                        <h3>Support de XHGui</h3>
+
+                        <ul>
+                            <li>Stockage en Bdd, <b>Entity Doctrine !</b></li>
+                            <li>XHGui front par Paul Reinheimer
+                                <ul>
+                                    <li>Highcharts</li>
+                                    <li>Tablesorter</li>
+                                    <li>Sexy, pratique, open-source</li>
+                                    <li><a href="https://github.com/preinheimer/xhprof">https://github.com/preinheimer/xhprof</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <!-- todo: faire une capture <section>
+                        <h3>Sexy je vous dit</h3>
+
+                        <img src="images/xhgui.png" alt="XHGui" style="width: 90%;"/>
+                    </section>-->
+                </section>
 
 
 
