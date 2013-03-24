@@ -83,7 +83,7 @@
                             <ul>
                                 <li>Pour le développeur fainéant</li>
                                 <li>Pour profiler et inspecter</li>
-                                <li>Pour améliorer l'<abbr title="User Experience">UX</abbr></li>
+                                <li>Pour améliorer le Front</li>
                                 <li>Pour se marrer ☺</li>
                             </ul>
                         </li>
@@ -867,6 +867,63 @@ class AwesomeWarmupProvider implements UrlProviderInterface
                         <img src="images/xhgui.png" alt="XHGui" style="width: 90%;"/>
                     </section>-->
                 </section>
+
+
+
+
+
+
+
+
+
+                <section>
+                    <h2>Pour améliorer le Front</h2>
+
+                    <p>Un a tous un intégrateur au fond du coeur.</p>
+                </section>
+
+
+
+                <section>
+                    <h2>./symfony project:disable</h2>
+                    <img src="images/website_unavailable.jpg" alt="Project Disabled" style="width: 80%"/>
+                </section>
+                <section>
+                    <section>
+                        <h2 class="no-caps">LexikMaintenanceBundle</h2>
+
+                        <ul>
+                            <li><a href="https://github.com/lexik/LexikMaintenanceBundle">https://github.com/lexik/LexikMaintenanceBundle</a></li>
+                            <li>503 pour tous le monde sauf certaines IP</li>
+                            <li>Service et Command pour fermer / ouvrir</li>
+                            <li>Fichier, Memcache, BDD</li>
+                            <li>Ne fonctionne que si SF2 fonctionne...</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3></h3>
+
+                        <pre><code>lexik_maintenance:
+    authorized_ips: ['127.0.0.1']
+    driver:
+        ttl: 3600
+        class: '\Lexik\Bundle\MaintenanceBundle\Drivers\FileDriver'
+        options:
+            file_path: '%kernel.root_dir%/cache/lock'</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Une commande</h3>
+
+                        <pre><code>./app/console lexik:maintenance:lock</code></pre>
+
+                        <img src="images/503.png" alt="503" style="width: 80%"/>
+
+                        <p class="footnote">Se customise comme les autres : <code>error503.html.twig</code>.</p>
+                    </section>
+                </section>
+
 
 
 
