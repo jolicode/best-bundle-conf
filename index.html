@@ -925,6 +925,61 @@ class AwesomeWarmupProvider implements UrlProviderInterface
                 </section>
 
 
+                <section>
+                    <section>
+                        <h2 class="no-caps">BazingaExpose&#8208;TranslationBundle</h2>
+
+                        <ul>
+                            <li><a href="https://github.com/willdurand/BazingaExposeTranslationBundle">https://github.com/willdurand/BazingaExposeTranslationBundle</a></li>
+                            <li>Expose vos traductions au front via JS</li>
+                            <li>Gère les placeholders</li>
+                            <li>Gère la Pluralization</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Translator &amp; vos chaînes</h3>
+
+                        <pre><code>{{ url('bazinga_exposetranslation_js') }}</code></pre>
+
+                        <pre><code>&lt;script type="text/javascript"
+    src="/bundles/bazingaexposetranslation/js/translator.min.js"&gt;
+&lt;/script&gt;
+&lt;script type="text/javascript"
+    src="http://local.sf2-bundles.com/app_dev.php/i18n/messages/en"&gt;
+&lt;/script&gt;</code></pre>
+
+                        <pre><code>Translator.locale = 'en';
+Translator.defaultDomains = ["messages"];
+Translator.add("messages:homepage.pony", "I fucking love ponies");
+Translator.add("messages:symfony2.great", "I love Symfony2");</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Translator</h3>
+
+                        <ul>
+                            <li>Logique de pluriels de Symfony2</li>
+                            <li>Testé unitairement</li>
+                            <li>Guesser de domain (explore tous les catalogues avant de retourner null)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <pre><code>Translator.has('messages:homepage.pony');
+&gt;&gt; true
+Translator.get('messages:homepage.pony');
+&gt;&gt; "I fucking love ponies"
+Translator.get('messages:homepage.pony.unknown');
+&gt;&gt; "messages:homepage.pony.unknown"
+Translator.locale
+&gt;&gt; "en"</code></pre>
+
+                        <p>Les mêmes traductions au front et au back \o/</p>
+
+                        <aside class="notes">VOus pouvez n'exposer qu'un catalogue (faire un catalogue "js" par exemple).</aside>
+                    </section>
+                </section>
 
 
 
