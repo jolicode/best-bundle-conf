@@ -984,16 +984,71 @@ Translator.locale
 
                 <section>
                     <section>
-                        <h2 class="no-caps">BazingaExpose&#8208;TranslationBundle</h2>
+                        <h2 class="no-caps">APYJsFormValidation&#8208;Bundle</h2>
 
                         <ul>
-                            <li><a href="https://github.com/willdurand/BazingaExposeTranslationBundle">https://github.com/willdurand/BazingaExposeTranslationBundle</a></li>
-                            <li>Expose vos traductions au front via JS</li>
-                            <li>Gère les placeholders</li>
-                            <li>Gère la Pluralization</li>
+                            <li><a href="https://github.com/Abhoryo/APYJsFormValidationBundle">https://github.com/Abhoryo/APYJsFormValidationBundle</a></li>
+                            <li>Validation des formulaires via Javascript</li>
+                            <li>Copain avec BazingaExposeTranslationBundle</li>
                         </ul>
                     </section>
+
+                    <section>
+                        <h3>Contrainte du Validator</h3>
+
+                        <pre><code>/**
+ * @var string
+ *
+<b> * @Assert\MinLength(
+ *     limit=3,
+ *     message="Your pony name is not verbose enough!"
+ * )
+ * @Assert\NotBlank()</b>
+ * @ORM\Column(name="name", type="string", length=255)
+ */
+private $name;</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Affichage du formulaire</h3>
+
+                        <pre><code>{{ JSFV(form) }}</code></pre>
+
+                        <pre><code>&lt;script type="text/javascript" src="/bundles/jsformvalidation/js/<b>_demo_hello_form.js</b>"&gt;&lt;/script&gt;</code></pre>
+
+                        <p><b style="color:#9dbc4e">_demo_hello</b>_<b style="color:#39bc81">form</b>.js = Nom de la route + Nom du form</p>
+                    </section>
+
+                    <section>
+                        <h3>Un Javascript par formulaire</h3>
+
+                        <pre><code>check_form_name: function() {
+    var gv;
+    result = true;
+    result = result && checkError('form_name', MinLength, {message:"Your pony name is not verbose enough!", limit:3, charset:"UTF-8"} );
+    result = result && checkError('form_name', NotBlank, {message:"This value should not be blank."} );
+    return result;
+},</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Validation en Javascript</h3>
+
+                        <pre><code>&lt;div&gt;
+    &lt;label for="form_name" class="required"&gt;Name&lt;/label&gt;
+
+    &lt;ul class="error_list"&gt;
+        &lt;li&gt;Your pony name is not verbose enough!&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;input type="text" id="form_name" name="form[name]" required="required"&gt;
+&lt;/div&gt;</code></pre>
+
+                        <aside class="notes">Il va chercher les traductions dans la clé "validators" par défaut</aside>
+                    </section>
                 </section>
+
+
 
 
 
