@@ -151,8 +151,6 @@
 
                     <p>Et d'un côté : tant mieux.</p>
 
-                    <p class="footnote">Allô quoi.</p>
-
                     <aside class="notes">
                         il y aurait 1600 plugins RoR et
                         1688 packages Django.
@@ -443,6 +441,11 @@ echo $faker->text;
                     <section>
                         <h3>Plus simple et meilleur</h3>
 
+                        <pre><code>$response = $this->get('igorw_file_serve.response_factory')
+    ->create('../r-black-Friday-Friday.mp4', 'video/mp4);</code></pre>
+
+                        <h3>VS</h3>
+
                         <pre><code>&lt;?php
     use Symfony\Component\HttpFoundation\StreamedResponse;
     use Symfony\Component\HttpFoundation\ResponseHeaderBag;
@@ -456,9 +459,6 @@ echo $faker->text;
     $d = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, 'video.mp4');
     $response->headers->set('Content-Disposition', $d);
     $response->send();</code></pre>
-                        <h3>VS</h3>
-                        <pre><code>$response = $this->get('igorw_file_serve.response_factory')
-    ->create('../r-black-Friday-Friday.mp4', 'video/mp4);</code></pre>
 
                         <aside class="notes">
                             <p>
