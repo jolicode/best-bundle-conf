@@ -32,6 +32,8 @@ footer.joli {
 
 
 .lazystate .reveal .state-background,
+.frontendstate .reveal .state-background,
+.funstate .reveal .state-background,
 .profilestate .reveal .state-background
 {
 background-repeat: no-repeat;
@@ -47,6 +49,12 @@ background-image: url('../../images/lazy.jpg');
 .profilestate .reveal .state-background {
 background-image: url('../../images/profile.jpg');
 }
+.frontendstate .reveal .state-background {
+background-image: url('../../images/ie6.jpg');
+}
+.funstate .reveal .state-background {
+background-image: url('../../images/lol.gif');
+}
 
 
 
@@ -54,6 +62,14 @@ background-image: url('../../images/profile.jpg');
 .lazystate .reveal h2,
 .lazystate .reveal p,
 .lazystate .reveal li,
+.frontendstate .reveal h1,
+.frontendstate .reveal h2,
+.frontendstate .reveal p,
+.frontendstate .reveal li,
+.funstate .reveal h1,
+.funstate .reveal h2,
+.funstate .reveal p,
+.funstate .reveal li,
 .profilestate .reveal h1,
 .profilestate .reveal h2,
 .profilestate .reveal p,
