@@ -149,7 +149,7 @@
                         <li>des 5 706 extensions Typo3</li>
                     </ul>
 
-                    <p>Et d'un côté : tant mieux.</p>
+                    <p class="footnote">Et d'un côté : tant mieux...</p>
 
                     <aside class="notes">
                         il y aurait 1600 plugins RoR et
@@ -228,6 +228,8 @@
                 </section>
 
                 <section>
+                    <h2>♥ FOS ♥</h2>
+
                     <img src="images/youre-awesome.gif" alt="Awesome" style="width: 80%" />
 
                     <aside class="notes">
@@ -238,6 +240,8 @@
                            <li>FOSFacebookBundle</li>
                            <li>FOSTwitterBundle</li>
                            <li>FOSJsRoutingBundle</li>
+
+                           <li>FOS Elastica ajouté la semaine dernière</li>
                        </ul>
                     </aside>
                 </section>
@@ -279,7 +283,7 @@
 
 
 
-                <section id="dev_bundles">
+                <section id="dev_bundles" data-state="lazystate">
                     <h2>Pour le développeur efficace</h2>
 
                     <p>Qui a dit « fainéant » ?</p>
@@ -516,13 +520,9 @@ class PonyController extends Controller
                     <section>
                         <h3>Possibilité d'export statique</h3>
 
-                        <ul>
-                            <li>Markdown</li>
-                            <li>HTML</li>
-                            <li>Json</li>
-                        </ul>
-
                         <pre><code>app/console api:doc:dump --format=html > api.html</code></pre>
+
+                        <p>Markdown, HTML, Json</p>
                     </section>
                 </section>
 
@@ -532,7 +532,7 @@ class PonyController extends Controller
 
 
 
-                <section id="#profile_bundles">
+                <section id="profile_bundles" data-state="profilestate">
                     <h2>Pour profiler et inspecter</h2>
 
                     <p>Performance et statistiques sont nos amis.</p>

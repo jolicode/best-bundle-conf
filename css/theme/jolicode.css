@@ -30,6 +30,42 @@ footer.joli {
 .jolistate .reveal .state-background {
   background: rgba(0, 0, 0, 0.6); }
 
+
+.lazystate .reveal .state-background,
+.profilestate .reveal .state-background
+{
+background-repeat: no-repeat;
+background-position: fixed;
+background-size: cover;
+background-position: center;
+opacity: 0.5;
+}
+
+.lazystate .reveal .state-background {
+background-image: url('../../images/lazy.jpg');
+}
+.profilestate .reveal .state-background {
+background-image: url('../../images/profile.jpg');
+}
+
+
+
+.lazystate .reveal h1,
+.lazystate .reveal h2,
+.lazystate .reveal p,
+.lazystate .reveal li,
+.profilestate .reveal h1,
+.profilestate .reveal h2,
+.profilestate .reveal p,
+.profilestate .reveal li
+{
+    text-shadow: -5px 5px 25px #000,
+                 5px -5px 25px #000,
+                 5px 5px 25px #000,
+                 -5px -5px 25px #000
+    ;
+}
+
 .reveal section a img {
   background: none;
   border: none;
