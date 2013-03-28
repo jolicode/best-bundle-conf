@@ -34,10 +34,10 @@ footer.joli {
 .lazystate .reveal .state-background,
 .frontendstate .reveal .state-background,
 .funstate .reveal .state-background,
+.pillstate .reveal .state-background,
 .profilestate .reveal .state-background
 {
 background-repeat: no-repeat;
-background-position: fixed;
 background-size: cover;
 background-position: center;
 opacity: 0.5;
@@ -55,25 +55,32 @@ background-image: url('../../images/ie6.jpg');
 .funstate .reveal .state-background {
 background-image: url('../../images/lol.gif');
 }
+.pillstate .reveal .state-background {
+background-image: url('../../images/pills.jpg');
+}
 
 
 
-.lazystate .reveal h1,
-.lazystate .reveal h2,
-.lazystate .reveal p,
-.lazystate .reveal li,
-.frontendstate .reveal h1,
-.frontendstate .reveal h2,
-.frontendstate .reveal p,
-.frontendstate .reveal li,
-.funstate .reveal h1,
-.funstate .reveal h2,
-.funstate .reveal p,
-.funstate .reveal li,
-.profilestate .reveal h1,
-.profilestate .reveal h2,
-.profilestate .reveal p,
-.profilestate .reveal li
+.lazystate .reveal .present h1,
+.lazystate .reveal .present h2,
+.lazystate .reveal .present p,
+.lazystate .reveal .present li,
+.frontendstate .reveal .present h1,
+.frontendstate .reveal .present h2,
+.frontendstate .reveal .present p,
+.frontendstate .reveal .present li,
+.funstate .reveal .present h1,
+.funstate .reveal .present h2,
+.funstate .reveal .present p,
+.funstate .reveal .present li,
+.pillstate .reveal .present h1,
+.pillstate .reveal .present h2,
+.pillstate .reveal .present p,
+.pillstate .reveal .present li,
+.profilestate .reveal .present h1,
+.profilestate .reveal .present h2,
+.profilestate .reveal .present p,
+.profilestate .reveal .present li
 {
     text-shadow: -5px 5px 25px #000,
                  5px -5px 25px #000,
