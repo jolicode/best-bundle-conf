@@ -424,9 +424,6 @@ echo $faker->text;
                     </section>
                 </section>
 
-
-
-
                 <section>
                     <section>
                         <h2 class="no-caps">IgorwFileServeBundle</h2>
@@ -462,7 +459,7 @@ echo $faker->text;
                         </aside>
                     </section>
 
-                    <section>
+                    <!--<section>
                         <h3>Plus simple et meilleur</h3>
 
                         <pre><code>$response = $this->get('igorw_file_serve.response_factory')
@@ -489,6 +486,45 @@ echo $faker->text;
                                 StreamedResponse est apparu en 2.1, utilise l'output de PHP.
                             </p>
                         </aside>
+                    </section>-->
+
+                    <section data-state="alert">
+                        <img src="images/surprised.png" alt="Surprise!" style="width: 90%;background: none;border:none;box-shadow: none;" />
+                    </section>
+
+                    <section>
+                        <h3 class="no-caps">BinaryFileResponse</h3>
+
+                        <ul>
+                            <li>En discussion depuis plus d'un an</li>
+                            <li>Mergé il y a 3 mois en 2.2</li>
+                            <li>Documenté depuis <strong>hier !</strong>*</li>
+                        </ul>
+                        
+                        <p class="footnote">
+                            * <a href="https://github.com/symfony/symfony-docs/pull/2416">symfony/symfony-docs/pull/2416</a>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="no-caps">BinaryFileResponse</h3>
+
+                        <ul>
+                            <li>Supporte SendFile</li>
+                            <li>Supporte If-Range</li>
+                            <li>X-Accel-Mapping</li>
+                            <li>Envoi via PHP par défaut</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 class="no-caps">BinaryFileResponse</h3>
+
+                        <pre><code>use Symfony\Component\HttpFoundation\BinaryFileResponse
+
+$file = '/var/private/r-black-Friday-Friday.mp4';
+$response = new BinaryFileResponse($file);
+$response::trustXSendfileTypeHeader();</code></pre>
                     </section>
                 </section>
 
@@ -503,6 +539,8 @@ echo $faker->text;
                             <li>Authentification</li>
                             <li>Interface sexy</li>
                         </ul>
+
+                        <p class="footnote">(ouais je sais Guillaume en a parlé hier)</p>
 
                         <aside class="notes">Interface basée sur Swagger-UI<br />
                             introspection et annotation pour avoir une doc toujours à jour</aside>
