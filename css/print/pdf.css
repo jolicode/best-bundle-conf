@@ -23,9 +23,11 @@ body {
 	padding: 0;
 	float: none !important;
 	overflow: visible;
+    background: #050607!important;
 }
 
 html {
+    background: #050607!important;
 	width: 100%;
 	height: 100%;
 	overflow: visible;
